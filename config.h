@@ -188,7 +188,7 @@ static char *copyurlcmd[] = { "/bin/sh", "-c", "tr -d '\n' | sed -n '1!G;h;$p' |
 
 static char *openurlcmd[] = { "/bin/sh", "-c", "sed -n '1!G;h;$p' | grep -aEo -m 1 '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_+-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' | xargs xdg-open", "externalpipe", NULL };
 
-static char *copyexternalpipe[] = { "/bin/sh", "-c", "xclip -selection clipboard", "externalpipe", NULL };
+static char *externalscript[] = { "/bin/sh", "-c", "$HOME/.config/st/externalpipe.sh", "externalpipe", NULL };
 
 static Shortcut shortcuts[] = {
     /* mask                 keysym          function        argument */
@@ -206,7 +206,7 @@ static Shortcut shortcuts[] = {
     { TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
     { TERMMOD,              XK_L,           externalpipe,   {.v = copyurlcmd} },
     { TERMMOD,              XK_O,           externalpipe,   {.v = openurlcmd} },
-    { TERMMOD,              XK_P,           externalpipe,   {.v = copyexternalpipe} },
+    { TERMMOD,              XK_P,           externalpipe,   {.v = externalscript} },
 };
 
 /*

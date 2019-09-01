@@ -1980,20 +1980,20 @@ externalpipe(const Arg *arg)
 	if (pipe(to) == -1)
 		return;
 
-	switch (fork()) {
-	case -1:
-		close(to[0]);
-		close(to[1]);
-		return;
-	case 0:
-		dup2(to[0], STDIN_FILENO);
-		close(to[0]);
-		close(to[1]);
-		execvp(((char **)arg->v)[0], (char **)arg->v);
-		fprintf(stderr, "st: execvp %s\n", ((char **)arg->v)[0]);
-		perror("failed");
-		exit(0);
-	}
+    switch (fork()) {
+        case -1:
+            close(to[0]);
+            close(to[1]);
+            return;
+        case 0:
+            dup2(to[0], STDIN_FILENO);
+            close(to[0]);
+            close(to[1]);
+            execvp(((char **)arg->v)[0], (char **)arg->v);
+            fprintf(stderr, "st: execvp %s\n", ((char **)arg->v)[0]);
+            perror("failed");
+            exit(0);
+    }
 
 	close(to[0]);
 	/* ignore sigpipe for now, in case child exists early */
@@ -2020,7 +2020,6 @@ externalpipe(const Arg *arg)
 	/* restore */
 	signal(SIGPIPE, oldsigpipe);
 }
-
 
 void
 toggleprinter(const Arg *arg)
