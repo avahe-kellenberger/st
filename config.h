@@ -96,7 +96,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 4;
 
 /* bg opacity */
-float alpha = 0.4;
+float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -187,7 +187,7 @@ static MouseShortcut mshortcuts[] = {
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
 
-static char *copyurlcmd[] = { "/bin/sh", "-c", "tr -d '\n' | sed -n '1!G;h;$p' | grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_+#@-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' | uniq | sed 's/^www./http:\\/\\/www\\./g' | dmenu -i -l 16 -p 'Copy URL' -l 10 | xclip -selection clipboard", "externalpipe", NULL };
+static char *copyurlcmd[] = { "/bin/sh", "-c", "tr -d '\n' | sed -n '1!G;h;$p' | grep -aEo '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_+#@-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' | uniq | sed 's/^www./http:\\/\\/www\\./g' | dmenu -c -i -l 16 -p 'Copy URL' -l 10 | xclip -selection clipboard", "externalpipe", NULL };
 
 static char *openurlcmd[] = { "/bin/sh", "-c", "sed -n '1!G;h;$p' | grep -aEo -m 1 '(((http|https)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./&%?=_+#@-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' | xargs xdg-open", "externalpipe", NULL };
 
