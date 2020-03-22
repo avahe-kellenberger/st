@@ -1,5 +1,6 @@
 st
 st.o
 x.o
+boxdraw.o
 pkg/
 *.pkg.tar.xz
