@@ -238,9 +238,11 @@ MouseKey mkeys[] = {
 	{ Button5,              TERMMOD,        zoom,           {.f =  -1} },
 };
 
-static char *copyurlcmd[] = { "/bin/sh", "-c", "tr -d '\n' | sed -n '1!G;h;$p' | grep -Pao '(((ht|f)tp(s?))\\://)(www.|[a-zA-Z].)[a-zA-Z0-9.-]+\\.([a-z]+)(\\:[0-9]+)*(/($|[a-zA-Z0-9.\\,\\;\\?\\'\\''\\\\+&%\\$#\\=~_\\-]+))*' | uniq | dmenu -c -i -l 16 -p 'Copy URL' -l 10 | xclip -selection clipboard", "externalpipe", NULL };
+/* static char *copyurlcmd[] = { "/bin/sh", "-c", "tr -d '\n' | sed -n '1!G;h;$p' | grep -Pao '(((ht|f)tp(s?))\\://)(www.|[a-zA-Z].)[a-zA-Z0-9.-]+\\.([a-z]+)(\\:[0-9]+)*(/($|[a-zA-Z0-9.\\,\\;\\?\\'\\''\\\\+&%\\$#\\=~_\\-]+))*' | uniq | dmenu -c -i -l 16 -p 'Copy URL' -l 10 | xclip -selection clipboard", "externalpipe", NULL }; */
 
-static char *openurlcmd[] = { "/bin/sh", "-c", "tr -d '\n' | grep -Pao -m 1 '(((ht|f)tp(s?))\\://)(www.|[a-zA-Z].)[a-zA-Z0-9.-]+\\.([a-z]+)(\\:[0-9]+)*(/($|[a-zA-Z0-9.\\,\\;\\?\\'\\''\\\\+&%\\$#\\=~_\\-]+))*' | tail -n 1 | xargs xdg-open", "externalpipe", NULL };
+static char *copyurlcmd[] = { "/bin/sh", "-c", "tr -d '\n' | sed -n '1!G;h;$p' | grep -Pao '(((ht|f)tp(s?))\\://)(www.|[a-zA-Z0-9].)[a-zA-Z0-9.-]+\\.([a-z]+)(\\:[0-9]+)*(/($|[a-zA-Z0-9.\\,\\;\\?\\'\\''\\\\+&%\\$#\\=~_\\-]+))*' | uniq | dmenu -c -i -l 16 -p 'Copy URL' -l 10 | xclip -selection clipboard", "externalpipe", NULL };
+
+static char *openurlcmd[] = { "/bin/sh", "-c", "tr -d '\n' | grep -Pao -m 1 '(((ht|f)tp(s?))\\://)(www.|[a-zA-Z0-9].)[a-zA-Z0-9.-]+\\.([a-z]+)(\\:[0-9]+)*(/($|[a-zA-Z0-9.\\,\\;\\?\\'\\''\\\\+&%\\$#\\=~_\\-]+))*' | tail -n 1 | xargs xdg-open", "externalpipe", NULL };
 
 static char *externalscript[] = { "/bin/bash", "-c", "$HOME/.config/st/externalpipe.sh", "externalpipe", NULL };
 
