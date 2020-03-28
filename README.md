@@ -7,6 +7,8 @@ The [suckless terminal (st)](https://st.suckless.org/) with some additional feat
 + **Open the most recent URL** by pressing `Control+Shift+O`
 + **Copy a URL** in the same way with `Control+Shift+L`
 
+This requires placing `externalpipe.sh` in $HOME/.config/st/ and [my build of dmenu](https://github.com/avahe-kellenberger/dmenu)
+
 ## Bindings for
 
 + **scrollback** with `alt-↑/↓` or `alt-pageup/down` or `shift` while scrolling the mouse
@@ -19,7 +21,7 @@ The [suckless terminal (st)](https://st.suckless.org/) with some additional feat
 + Compatibility with `Xresources` and `pywal` for dynamic colors. The `Xdefaults` file shows a usage example.
 + Default `srcery` colors otherwise.
 + Transparency/alpha, which is also adjustable from your `Xresources`.
-+ Default font is system "mono" at 14pt, meaning the font will match your system font.
++ Default font is system "mono" at 12pt, meaning the font will match your system font.
 
 ## Other st patches
 
