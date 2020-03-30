@@ -7,7 +7,7 @@ input="$(</dev/stdin)"
 [ -z "$input" ] && exit 1
 
 parse_urls() {
-  echo "$1" | grep -Paio 'https?://[^ "]*'
+  echo "$1" | grep -Paio 'https?://[^ "\(\)\[\]]*'
 }
 
 case "$cmd" in
