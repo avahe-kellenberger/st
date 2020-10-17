@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "mono:pixelsize=12:antialias=true:autohint=true";
-static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true", "Symbols Nerd Font:style=2048-em" };
 static int borderpx = 2;
 
 /*
@@ -109,7 +109,7 @@ float alpha = 1.0;
 static const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#1c1b19", /* black   */
+  [0] = "#252d33", /* black   */
   [1] = "#ef2f27", /* red     */
   [2] = "#519f50", /* green   */
   [3] = "#fbb829", /* yellow  */
@@ -131,8 +131,8 @@ static const char *colorname[] = {
   [255] = 0,
 
   /* special colors */
-  [256] = "#1c1b19", /* background */
-  [257] = "#fce8c3", /* foreground */
+  [256] = "#252d33", /* background */
+  [257] = "#00c1bc", /* foreground */
 };
 
 
