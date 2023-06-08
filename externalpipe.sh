@@ -12,7 +12,7 @@ parse_urls() {
 
 case "$cmd" in
   copy)
-    parse_urls "$input" | awk '!a[$0]++' | dmenu -c -i -l 16 -p 'Copy URL' -l 10 | xclip -selection clipboard
+    parse_urls "$input" | awk '!a[$0]++' | dmenu -i -l 16 -p 'Copy URL' -l 10 | xclip -selection clipboard
     ;;
   open)
     xdg-open "$(parse_urls "$input" | tail -n 1)"
