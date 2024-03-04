@@ -43,7 +43,7 @@ static unsigned int tripleclicktimeout = 600;
 int allowaltscreen = 1;
 
 /* frames per second st should at maximum draw to the screen */
-static unsigned int xfps = 120;
+static unsigned int xfps = 165;
 static unsigned int actionfps = 30;
 
 /*
@@ -106,35 +106,38 @@ unsigned int tabspaces = 4;
 float alpha = 0.25;
 
 /* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
 
-  /* 8 normal colors */
-  [0] = "#282a36", /* black   */
-  [1] = "#ff5555", /* red     */
-  [2] = "#50fa7b", /* green   */
-  [3] = "#f1fa8c", /* yellow  */
-  [4] = "#BD93F9", /* blue    */
-  [5] = "#FF79C6", /* magenta */
-  [6] = "#8be9fd", /* cyan    */
-  [7] = "#f8f8f2", /* white   */
+/* dracula */
+/* static const char *colorname[] = { */
 
-  /* 8 bright colors */
-  [8]  = "#6272A4", /* black   */
-  [9]  = "#FF6E6E", /* red     */
-  [10] = "#69FF94", /* green   */
-  [11] = "#FFFFA5", /* yellow  */
-  [12] = "#D6ACFF", /* blue    */
-  [13] = "#FF92DF", /* magenta */
-  [14] = "#A4FFFF", /* cyan    */
-  [15] = "#ffffff", /* white   */
+/*   /1* 8 normal colors *1/ */
+/*   [0] = "#282a36", /1* black   *1/ */
+/*   [1] = "#ff5555", /1* red     *1/ */
+/*   [2] = "#50fa7b", /1* green   *1/ */
+/*   [3] = "#f1fa8c", /1* yellow  *1/ */
+/*   [4] = "#BD93F9", /1* blue    *1/ */
+/*   [5] = "#FF79C6", /1* magenta *1/ */
+/*   [6] = "#8be9fd", /1* cyan    *1/ */
+/*   [7] = "#f8f8f2", /1* white   *1/ */
 
-  [255] = 0,
+/*   /1* 8 bright colors *1/ */
+/*   [8]  = "#6272A4", /1* black   *1/ */
+/*   [9]  = "#FF6E6E", /1* red     *1/ */
+/*   [10] = "#69FF94", /1* green   *1/ */
+/*   [11] = "#FFFFA5", /1* yellow  *1/ */
+/*   [12] = "#D6ACFF", /1* blue    *1/ */
+/*   [13] = "#FF92DF", /1* magenta *1/ */
+/*   [14] = "#A4FFFF", /1* cyan    *1/ */
+/*   [15] = "#ffffff", /1* white   *1/ */
 
-  /* special colors */
-  [256] = "#282a36", /* background */
-  [257] = "#f8f8f2", /* foreground */
-};
+/*   [255] = 0, */
 
+/*   /1* special colors *1/ */
+/*   [256] = "#282a36", /1* background *1/ */
+/*   [257] = "#f8f8f2", /1* foreground *1/ */
+/* }; */
+
+/* gruvbox */
 /* static const char *colorname[] = { */
 
 /*   /1* 8 normal colors *1/ */
@@ -165,6 +168,36 @@ static const char *colorname[] = {
 /*   [257] = "#fbf1c7", /1* foreground *1/ */
 /* }; */
 
+/* Github Colors? */
+static const char *colorname[] = {
+
+  /* 8 normal colors */
+  [0] = "#1d2021", /* black   */
+
+  [1] = "#cc241d",  /* red     */
+  [2] = "#98971a",  /* green   */
+  [3] = "#d79921",  /* yellow  */
+  [4] = "#458588",  /* blue    */
+  [5] = "#b16286",  /* magenta */
+  [6] = "#689d6a",  /* cyan    */
+  [7] = "#d65d0e",  /* white   */
+
+  /* 8 bright colors */
+  [8]  = "#fb4934", /* black   */
+  [9]  = "#b8bb26", /* red     */
+  [10] = "#fabd2f", /* green   */
+  [11] = "#83a598", /* yellow  */
+  [12] = "#d3869b", /* blue    */
+  [13] = "#8ec07c", /* magenta */
+  [14] = "#fe8019", /* cyan    */
+  [15] = "#fbf1c7", /* white   */
+
+  [255] = 0,
+
+  /* special colors */
+  [256] = "#1d2021", /* background */
+  [257] = "#fbf1c7", /* foreground */
+};
 
 /*
  * Default colors (colorname index)
@@ -172,9 +205,8 @@ static const char *colorname[] = {
  */
 unsigned int defaultbg = 256;
 unsigned int defaultfg = 257;
-static unsigned int defaultcs = 257;
-/* TODO: What is rcs */
-static unsigned int defaultrcs = 256;
+static unsigned int defaultcs = 256;
+static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
@@ -204,45 +236,6 @@ static unsigned int mousebg = 0;
  * doesn't match the ones requested.
  */
 static unsigned int defaultattr = 11;
-
-/*
- * Xresources preferences to load at startup
- */
-ResourcePref resources[] = {
-		{ "font",         STRING,  &font },
-		{ "fontalt0",     STRING,  &font2[0] },
-		{ "color0",       STRING,  &colorname[0] },
-		{ "color1",       STRING,  &colorname[1] },
-		{ "color2",       STRING,  &colorname[2] },
-		{ "color3",       STRING,  &colorname[3] },
-		{ "color4",       STRING,  &colorname[4] },
-		{ "color5",       STRING,  &colorname[5] },
-		{ "color6",       STRING,  &colorname[6] },
-		{ "color7",       STRING,  &colorname[7] },
-		{ "color8",       STRING,  &colorname[8] },
-		{ "color9",       STRING,  &colorname[9] },
-		{ "color10",      STRING,  &colorname[10] },
-		{ "color11",      STRING,  &colorname[11] },
-		{ "color12",      STRING,  &colorname[12] },
-		{ "color13",      STRING,  &colorname[13] },
-		{ "color14",      STRING,  &colorname[14] },
-		{ "color15",      STRING,  &colorname[15] },
-		{ "background",   STRING,  &colorname[258] },
-		{ "foreground",   STRING,  &colorname[259] },
-		{ "cursorColor",  STRING,  &colorname[256] },
-		{ "termname",     STRING,  &termname },
-		{ "shell",        STRING,  &shell },
-		{ "xfps",         INTEGER, &xfps },
-		{ "actionfps",    INTEGER, &actionfps },
-		{ "blinktimeout", INTEGER, &blinktimeout },
-		{ "bellvolume",   INTEGER, &bellvolume },
-		{ "tabspaces",    INTEGER, &tabspaces },
-		{ "borderpx",     INTEGER, &borderpx },
-		{ "cwscale",      FLOAT,   &cwscale },
-		{ "chscale",      FLOAT,   &chscale },
-		{ "alpha",        FLOAT,   &alpha },
-		{ "ximspot_update_interval", INTEGER, &ximspot_update_interval },
-};
 
 /*
  * Internal mouse shortcuts.
